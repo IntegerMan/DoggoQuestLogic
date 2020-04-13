@@ -22,7 +22,7 @@ export class StoryEngine {
 
   public score = 0;
 
-  public get initialEntries(): StoryEntry[] {
+  public getInitialEntries(): StoryEntry[] {
     const entries = [
       new StoryEntry(StoryEntryType.SystemText, 'Welcome to Doggo Quest!'),
       new StoryEntry(StoryEntryType.SystemText,
