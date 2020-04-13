@@ -9,8 +9,8 @@
     "test": "npx jest",
     "ci": "npm run build",
     "postversion": "git push && git push --tags",
-    "prepublishOnly": "npm run ci",
-    "preversion": "npm run ci"
+    "preversion": "npm run ci",
+    "deploy": "npm version && npm publish"
   },
   "author": "Matt Eland",
   "license": "MIT",
