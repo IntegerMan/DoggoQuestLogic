@@ -4,6 +4,7 @@
   "description": "The game logic for the Doggo Quest text-based game sample project",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Eland",
