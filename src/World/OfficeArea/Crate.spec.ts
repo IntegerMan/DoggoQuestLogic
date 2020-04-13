@@ -1,11 +1,13 @@
-import {EngineTest} from '../../../app/EngineTest';
+import {StoryEngine} from '../../Parsing/StoryEngine';
 import {Room} from '../Room';
 
 describe('Crate', () => {
 
-  let engine: EngineTest;
+  let engine;
   beforeEach(() => {
-    engine = new EngineTest();
+    engine = new StoryEngine();
+    engine.state.isCrateOpen = false;
+    engine.state.currentRoom = Room.InCrate;
   });
 
   describe('navigation', () => {

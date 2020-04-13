@@ -1,11 +1,11 @@
-import {EngineTest} from '../../../app/EngineTest';
+import {StoryEngine} from '../../Parsing/StoryEngine';
 import {Room} from '../Room';
 
 describe('Office', () => {
 
-  let engine: EngineTest;
+  let engine;
   beforeEach(() => {
-    engine = new EngineTest();
+    engine = new StoryEngine();
     engine.state.isCrateOpen = true;
     engine.state.currentRoom = Room.Office;
   });

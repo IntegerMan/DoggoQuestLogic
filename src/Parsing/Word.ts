@@ -10,11 +10,11 @@ export class Word {
   /**
    * The object in the game this world has been mapped to
    */
-  public gameObject: GameObject | undefined;
+  public gameObject: GameObject | null = null;
 
   public room: Room | undefined;
 
-  constructor(public text: string, public reduced: string, initialTags: string[]) {
+  constructor(public text: string, public reduced: string | undefined, initialTags: string[]) {
     this.tags = initialTags;
   }
 
