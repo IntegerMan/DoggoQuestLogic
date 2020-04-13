@@ -10,7 +10,7 @@
     "ci": "npm run build",
     "postversion": "git push && git push --tags",
     "preversion": "npm run ci",
-    "deploy": "npm version && npm publish"
+    "deploy": "npm version patch && npm publish"
   },
   "author": "Matt Eland",
   "license": "MIT",
