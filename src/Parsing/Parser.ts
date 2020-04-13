@@ -24,7 +24,11 @@ export class Parser {
       }
 
       if (word.isAdverb) {
-        word.parent = verb ?? null;
+        if (verb) {
+          word.parent = verb;
+        } else {
+          word.parent = null;
+        }
         if (verb) {
           verb.addChild(word);
         }

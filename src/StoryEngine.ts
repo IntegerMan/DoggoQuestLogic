@@ -1,12 +1,12 @@
-import {CommandContext} from '../CommandContext';
-import {StoryEntry} from '../StoryEntry';
-import {StoryEntryType} from '../StoryEntryType';
-import {GameObject} from '../World/GameObject';
-import {GameWorld} from '../World/GameWorld';
-import {GameResponse} from './GameResponse';
-import {Parser} from './Parser';
-import {Sentence} from './Sentence';
-import {VerbHandler} from './VerbHandler';
+import {CommandContext} from './CommandContext';
+import {StoryEntry} from './StoryEntry';
+import {StoryEntryType} from './StoryEntryType';
+import {GameObject} from './World/GameObject';
+import {GameWorld} from './World/GameWorld';
+import {GameResponse} from './Parsing/GameResponse';
+import {Parser} from './Parsing/Parser';
+import {Sentence} from './Parsing/Sentence';
+import {VerbHandler} from './Parsing/VerbHandler';
 
 export class StoryEngine {
 

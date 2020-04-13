@@ -1,4 +1,4 @@
-import {StoryEngine} from '../../Parsing/StoryEngine';
+import {StoryEngine} from '../../StoryEngine';
 import {Room} from '../Room';
 
 describe('Dining', () => {

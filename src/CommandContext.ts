@@ -22,14 +22,18 @@ export class CommandContext {
 
   public get currentRoomName(): string {
     const room = this.currentRoomObject;
-    if (!room) return 'NO ROOM';
+    if (!room) {
+      return 'NO ROOM';
+    }
     return room.displayName;
   }
 
   public describeCurrentRoom(isFullDescribe: boolean): void {
     const gameRoom = this.world.getRoom(this.world.currentRoom);
 
-    if (!gameRoom) return;
+    if (!gameRoom) {
+      return;
+    }
 
     this.addRoomName(gameRoom.displayName);
 
@@ -45,7 +49,9 @@ export class CommandContext {
   public changeRoom(newRoom: Room, directionName: string): void {
     const currentRoom: GameRoom | undefined = this.world.getRoom(this.currentRoom);
 
-    if (!currentRoom) return;
+    if (!currentRoom) {
+      return;
+    }
 
     // Check to see if we have something like canGoNorth and execute it if relevant
     const tryGoVar = `tryGo` + directionName[0].toUpperCase() + directionName.slice(1);
