@@ -1,5 +1,4 @@
 import {GameObject} from '../World/GameObject';
-import {GameRoom} from '../World/GameRoom';
 import {Room} from '../World/Room';
 
 export class Word {
