@@ -5,12 +5,18 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "npx jest"
+    "test": "npx jest",
+    "deploy": "npm run build && npm version patch && npm publish"
   },
   "author": "Matt Eland",
   "license": "MIT",
   "dependencies": {
     "compromise": "^13.1.0"
+  },
+  "files": ["dist/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IntegerMan/DoggoQuestLogic.git"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
