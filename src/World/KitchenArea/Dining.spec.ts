@@ -41,7 +41,6 @@ describe('Dining', () => {
       expect(response).toContain('door');
       expect(response).toContain('outside');
       expect(response).toContain('food');
-      expect(response).toContain('water');
       expect(response).toContain('table');
       expect(response).toContain('kitchen');
       expect(response).toContain('living');

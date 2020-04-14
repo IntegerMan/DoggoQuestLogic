@@ -26,9 +26,7 @@ describe('Living Room', () => {
       const response = engine.getResponse('look');
       expect(response).toContain('couch');
       expect(response).toContain('TV');
-      expect(response).toContain('ball');
-      expect(response).toContain('squeaker');
-      expect(response).toContain('bed');
+      expect(response).toContain('toys');
       expect(response).toContain('dining');
     });
   });

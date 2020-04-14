@@ -1,4 +1,5 @@
 export enum Room {
+  CantGo,
   InCrate,
   Office,
   OnChair,
@@ -7,5 +8,4 @@ export enum Room {
   Kitchen,
   Living,
   UnderCouch,
-  CantGo
 }

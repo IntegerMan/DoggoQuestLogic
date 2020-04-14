@@ -16,8 +16,10 @@ export class OnChair extends RoomBase {
     ];
   }
 
+  down = Room.Office;
+
   describe(context: CommandContext): void {
-    context.addText(`You're in the office on top of your favorite chair. From here you have a good vantage point to look out the window ` +
+    context.addText(`You're in the office on top of your favorite chair. From here you have a good vantage point to look out the window to the yard outside ` +
       `and can still see the rest of the office below you.`);
   }
 }

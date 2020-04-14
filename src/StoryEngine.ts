@@ -1,17 +1,16 @@
 import {CommandContext} from './CommandContext';
 import {GameResponse} from './Parsing/GameResponse';
+import {NounMapper} from './Parsing/NounMapper';
 import {Parser} from './Parsing/Parser';
 import {Sentence} from './Parsing/Sentence';
 import {VerbHandler} from './Parsing/VerbHandler';
 import {StoryEntry} from './StoryEntry';
 import {StoryEntryType} from './StoryEntryType';
-import {GameObject} from './World/GameObject';
-import {GameRoom} from './World/GameRoom';
 import {GameWorld} from './World/GameWorld';
-import {Room} from './World/Room';
 
 export class StoryEngine {
 
+  private readonly mapper: NounMapper;
   private readonly verbs: VerbHandler;
   private readonly parser: Parser;
   public state: GameWorld;
@@ -20,10 +19,12 @@ export class StoryEngine {
     this.parser = new Parser();
     this.state = new GameWorld();
     this.verbs = new VerbHandler();
+    this.mapper = new NounMapper();
   }
 
   public score = 0;
 
+  // noinspection JSUnusedGlobalSymbols
   public getInitialEntries(): StoryEntry[] {
     const entries = [
       new StoryEntry(StoryEntryType.SystemText, 'Welcome to Doggo Quest!'),
@@ -46,7 +47,7 @@ export class StoryEngine {
     const sentence = this.parser.parse(text);
     const context = new CommandContext(entries, sentence, this.state);
 
-    this.mapNouns(context);
+    this.mapper.mapNouns(context);
 
     // Add an event containing the player's command so we have a log of it in the UI
     context.addPlayerCommand();
@@ -78,73 +79,6 @@ export class StoryEngine {
 
   public getResponse(command: string): string {
     return this.getResponseState(command).responseText;
-  }
-
-  private mapNouns(context: CommandContext): void {
-    const currentRoom: GameRoom | undefined = this.state.getRoom(context.currentRoom);
-
-    if (!currentRoom) {
-      return;
-    }
-
-    for (const noun of context.sentence.rootWords.filter(w => w.isNoun)) {
-      noun.gameObject = this.findMatchForNoun(currentRoom.objects, noun.reduced);
-      noun.addTag('Mapped');
-    }
-
-    for (const dir of context.sentence.rootWords.filter(w => w.isDirection)) {
-      const dirName = dir.reduced;
-      if (dirName) {
-        dir.room = StoryEngine.getRoomTarget(dirName, currentRoom);
-        dir.addTag('Mapped');
-      }
-    }
-  }
-
-  private static getRoomTarget(direction: string, room: GameRoom): Room | undefined {
-    switch (direction) {
-      case 'north':
-        return room.north || Room.CantGo;
-      case 'east':
-        return room.east || Room.CantGo;
-      case 'south':
-        return room.south || Room.CantGo;
-      case 'west':
-        return room.west || Room.CantGo;
-      case 'up':
-        return room.up || Room.CantGo;
-      case 'down':
-        return room.down || Room.CantGo;
-      case 'in':
-        return room.in || Room.CantGo;
-      case 'out':
-        return room.out || Room.CantGo;
-
-      default:
-        return undefined;
-    }
-  }
-
-  private findMatchForNoun(objects: GameObject[], reduced: string | undefined): GameObject | null {
-    if (!reduced) return null;
-
-    for (const obj of objects) {
-      // If this object is a direct match, use it
-      if (obj.matches(reduced)) {
-        return obj;
-      }
-
-      // If it has children, we'll need to recursively check them
-      if (obj.children) {
-        const childResult = this.findMatchForNoun(obj.children, reduced);
-        if (childResult) {
-          return childResult;
-        }
-      }
-    }
-
-    // Okay, no match. Let's return null to indicate no object mapped
-    return null;
   }
 
   private handleCommand(context: CommandContext): void {
