@@ -1,10 +1,10 @@
+import {Sentence} from './Parsing/Sentence';
 import {Word} from './Parsing/Word';
+import {StoryEntry} from './StoryEntry';
+import {StoryEntryType} from './StoryEntryType';
 import {GameRoom} from './World/GameRoom';
 import {GameWorld} from './World/GameWorld';
 import {Room} from './World/Room';
-import {Sentence} from './Parsing/Sentence';
-import {StoryEntry} from './StoryEntry';
-import {StoryEntryType} from './StoryEntryType';
 
 export class CommandContext {
 
@@ -54,8 +54,12 @@ export class CommandContext {
     }
 
     // Check to see if we have something like canGoNorth and execute it if relevant
-    console.log('Change room', newRoom, directionName);
     if (currentRoom.tryGo(directionName.toLowerCase(), this)) {
+      return;
+    }
+
+    if (newRoom == Room.CantGo) {
+      this.addText('You can\'t go that way.');
       return;
     }
 

@@ -91,8 +91,6 @@ export class VerbHandler {
 
     const target = context.sentence.target;
 
-    console.log('Handle go', target, context.currentRoomObject);
-
     if (!target) {
       context.addError(`You need to say which way you want to go. For example, try 'go to the north' or 'go west'`);
       return false;

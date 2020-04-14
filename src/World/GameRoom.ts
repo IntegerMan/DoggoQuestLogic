@@ -3,8 +3,6 @@ import {GameObject} from './GameObject';
 import {Room} from './Room';
 
 export interface GameRoom {
-  getRoomTarget(direction: string): Room | undefined;
-
   displayName: string;
   id: Room;
   objects: GameObject[];

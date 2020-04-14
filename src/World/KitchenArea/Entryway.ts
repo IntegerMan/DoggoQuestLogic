@@ -13,6 +13,7 @@ export class Entryway extends RoomBase {
 
   south = Room.Dining;
   west = Room.Office;
+  up = Room.CantGo;
 
   constructor() {
     super('Entryway', Room.Entryway);

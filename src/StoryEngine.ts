@@ -1,12 +1,14 @@
 import {CommandContext} from './CommandContext';
-import {StoryEntry} from './StoryEntry';
-import {StoryEntryType} from './StoryEntryType';
-import {GameObject} from './World/GameObject';
-import {GameWorld} from './World/GameWorld';
 import {GameResponse} from './Parsing/GameResponse';
 import {Parser} from './Parsing/Parser';
 import {Sentence} from './Parsing/Sentence';
 import {VerbHandler} from './Parsing/VerbHandler';
+import {StoryEntry} from './StoryEntry';
+import {StoryEntryType} from './StoryEntryType';
+import {GameObject} from './World/GameObject';
+import {GameRoom} from './World/GameRoom';
+import {GameWorld} from './World/GameWorld';
+import {Room} from './World/Room';
 
 export class StoryEngine {
 
@@ -79,24 +81,47 @@ export class StoryEngine {
   }
 
   private mapNouns(context: CommandContext): void {
-    const currentRoom = this.state.getRoom(context.currentRoom);
+    const currentRoom: GameRoom | undefined = this.state.getRoom(context.currentRoom);
 
     if (!currentRoom) {
       return;
     }
 
     for (const noun of context.sentence.rootWords.filter(w => w.isNoun)) {
-      const target: GameObject | null = this.findMatchForNoun(currentRoom.objects, noun.reduced);
-      noun.gameObject = target;
+      noun.gameObject = this.findMatchForNoun(currentRoom.objects, noun.reduced);
       noun.addTag('Mapped');
     }
 
     for (const dir of context.sentence.rootWords.filter(w => w.isDirection)) {
       const dirName = dir.reduced;
       if (dirName) {
-        dir.room = currentRoom.getRoomTarget(dirName);
+        dir.room = StoryEngine.getRoomTarget(dirName, currentRoom);
         dir.addTag('Mapped');
       }
+    }
+  }
+
+  private static getRoomTarget(direction: string, room: GameRoom): Room | undefined {
+    switch (direction) {
+      case 'north':
+        return room.north || Room.CantGo;
+      case 'east':
+        return room.east || Room.CantGo;
+      case 'south':
+        return room.south || Room.CantGo;
+      case 'west':
+        return room.west || Room.CantGo;
+      case 'up':
+        return room.up || Room.CantGo;
+      case 'down':
+        return room.down || Room.CantGo;
+      case 'in':
+        return room.in || Room.CantGo;
+      case 'out':
+        return room.out || Room.CantGo;
+
+      default:
+        return undefined;
     }
   }
 
