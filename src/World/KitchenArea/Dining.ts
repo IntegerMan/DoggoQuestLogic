@@ -13,6 +13,8 @@ export class Dining extends RoomBase {
   west = Room.Kitchen;
   east = Room.Living;
   north = Room.Entryway;
+  south = Room.CantGo;
+  up = Room.CantGo;
 
   constructor() {
     super('Dining Room', Room.Dining);
@@ -22,6 +24,16 @@ export class Dining extends RoomBase {
       new HallwayObject(Room.Dining),
       new LivingRoomObject(Room.Dining),
     ];
+  }
+
+  tryGo(direction: string, context: CommandContext): boolean {
+    if (direction === 'south') {
+      context.addText('The door is shut. You\'d need mommy or daddy to open it.');
+      return true;
+    } else if (direction === 'up') {
+      context.addText('The table and chairs are too tall to jump up onto.');
+    }
+    return false;
   }
 
   describe(context: CommandContext): void {

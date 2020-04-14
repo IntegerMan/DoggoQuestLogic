@@ -7,4 +7,5 @@ export enum Room {
   Kitchen,
   Living,
   UnderCouch,
+  CantGo
 }

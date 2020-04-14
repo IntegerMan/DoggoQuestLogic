@@ -3,7 +3,7 @@ import {GameObject} from './GameObject';
 import {Room} from './Room';
 
 export interface GameRoom {
-  [key: string]: any;
+  getRoomTarget(direction: string): Room | undefined;
 
   displayName: string;
   id: Room;
@@ -16,6 +16,8 @@ export interface GameRoom {
   down?: Room;
   in?: Room;
   out?: Room;
+
+  tryGo(direction: string, context: CommandContext): boolean;
 
   describe(context: CommandContext): void;
 }

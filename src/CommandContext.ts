@@ -54,14 +54,9 @@ export class CommandContext {
     }
 
     // Check to see if we have something like canGoNorth and execute it if relevant
-    const tryGoVar = `tryGo` + directionName[0].toUpperCase() + directionName.slice(1);
-    // @ts-ignore
-    let tryGo: (context: CommandContext) => boolean | undefined = currentRoom[tryGoVar];
-    if (tryGo) {
-      tryGo = tryGo.bind(currentRoom);
-      if (tryGo(this)) {
-        return;
-      }
+    console.log('Change room', newRoom, directionName);
+    if (currentRoom.tryGo(directionName.toLowerCase(), this)) {
+      return;
     }
 
     this.addText(`You go ${directionName}`);

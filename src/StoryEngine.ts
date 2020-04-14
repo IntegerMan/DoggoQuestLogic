@@ -92,9 +92,11 @@ export class StoryEngine {
     }
 
     for (const dir of context.sentence.rootWords.filter(w => w.isDirection)) {
-      // @ts-ignore
-      dir.room = currentRoom[dir.reduced];
-      dir.addTag('Mapped');
+      const dirName = dir.reduced;
+      if (dirName) {
+        dir.room = currentRoom.getRoomTarget(dirName);
+        dir.addTag('Mapped');
+      }
     }
   }
 

@@ -10,12 +10,8 @@ export class Crate extends RoomBase {
   north = Room.Office;
   out = Room.Office;
 
-  tryGoOut(context: CommandContext): boolean {
-    return this.tryGoNorth(context);
-  }
-
-  tryGoNorth(context: CommandContext): boolean {
-    if (!context.world.isCrateOpen) {
+  tryGo(direction: string, context: CommandContext): boolean {
+    if ((direction == 'north' || direction == 'out') && !context.world.isCrateOpen) {
       context.addText('The crate door is shut and blocks your way.');
       return true;
     }

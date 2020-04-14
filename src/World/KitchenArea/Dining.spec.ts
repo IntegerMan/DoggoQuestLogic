@@ -29,7 +29,7 @@ describe('Dining', () => {
       expect(response.responseText).toContain('shut');
     });
     it('Should not allow navigation onto the table', () => {
-      const response = engine.getResponseState('go up');
+      const response = engine.getResponseState('jump up');
       expect(response.state.currentRoom).toBe(Room.Dining);
       expect(response.responseText).toContain('high');
     });

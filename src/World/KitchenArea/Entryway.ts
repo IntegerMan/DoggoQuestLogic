@@ -18,6 +18,14 @@ export class Entryway extends RoomBase {
     super('Entryway', Room.Entryway);
   }
 
+  tryGo(direction: string, context: CommandContext): boolean {
+    if (direction === 'up') {
+      context.addText(`The gate is in the way and blocks you from climbing the stairs.`);
+      return true;
+    }
+    return super.tryGo(direction, context);
+  }
+
   describe(context: CommandContext): void {
     context.addText(`You're in the entryway at the front of the house. A large door leads outside while the office is to the west and a ` +
       `hallway leads south to the dining room and living area.`);
