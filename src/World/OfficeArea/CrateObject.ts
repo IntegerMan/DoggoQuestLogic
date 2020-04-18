@@ -1,12 +1,13 @@
 import {GameObjectBase} from '../GameObjectBase';
+import {Room} from '../Room';
 import {BlanketObject} from './BlanketObject';
 import {CrateDoorObject} from './CrateDoorObject';
 
 export class CrateObject extends GameObjectBase {
-  constructor(private inCrate: boolean)  {
+  constructor(private room: Room)  {
     super('crate');
 
-    if (inCrate) {
+    if (room === Room.InCrate) {
       this.look = 'The crate is big enough for you to fit comfortably in and not too much bigger. You do not like it in here.';
       this.push = 'The crate rocks slightly, but not significantly. Maybe try pushing the door instead?';
       this.smell = 'It smells like you!';
@@ -17,7 +18,7 @@ export class CrateObject extends GameObjectBase {
     }
 
     this.children = [
-      new CrateDoorObject(inCrate),
+      new CrateDoorObject(room),
       new BlanketObject(),
     ];
 

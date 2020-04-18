@@ -1,8 +1,9 @@
 import {CommandContext} from '../../CommandContext';
 import {GameObjectBase} from '../GameObjectBase';
+import {Room} from '../Room';
 
 export class CrateDoorObject extends GameObjectBase {
-  constructor(private inCrate: boolean)  {
+  constructor(private room: Room)  {
     super('door');
 
     this.smell = 'It smells like metal.';
@@ -13,7 +14,7 @@ export class CrateDoorObject extends GameObjectBase {
 
   private  handlePushed(context: CommandContext): void {
     if (context.world.isCrateOpen) {
-      if (this.inCrate) {
+      if (this.room === Room.InCrate) {
         context.addText('The door is already open. In order to push it, you\'d have to leave the crate first.');
       } else {
         context.addText('You don\'t really want to push it. It could pinch you and besides, you\'re already out of the crate.');
@@ -27,7 +28,7 @@ export class CrateDoorObject extends GameObjectBase {
 
   private handleLook(context: CommandContext): void {
     if (context.world.isCrateOpen) {
-      if (this.inCrate) {
+      if (this.room === Room.InCrate) {
         context.addText('The door is open and the house practically invites you to explore it.');
       } else {
         context.addText('The door is open and leads back to the crate to the south.');

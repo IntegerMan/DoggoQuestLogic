@@ -1,6 +1,7 @@
 import {CommandContext} from '../../CommandContext';
 import {GameObject} from '../GameObject';
 import {ChairObject} from './ChairObject';
+import {CrateObject} from './CrateObject';
 import {WindowObject} from './WindowObject';
 import {Room} from '../Room';
 import {RoomBase} from '../RoomBase';
@@ -11,6 +12,7 @@ export class OnChair extends RoomBase {
   constructor() {
     super('Office (On Chair)', Room.OnChair);
     this.objects = [
+      new CrateObject(this.id),
       new WindowObject(this.id),
       new ChairObject(this.id)
     ];
