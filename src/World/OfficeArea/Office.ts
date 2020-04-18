@@ -8,7 +8,7 @@ import {WindowObject} from './WindowObject';
 
 export class Office extends RoomBase {
   objects: GameObject[] = [
-    new CrateObject(false),
+    new CrateObject(this.id),
     new WindowObject(this.id),
     new ChairObject(this.id)
   ];
