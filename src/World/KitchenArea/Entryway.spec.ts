@@ -113,19 +113,19 @@ describe('Entryway', () => {
       expect(engine.getResponse(`look at ${noun}`)).toContain('stairs');
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('feet');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`taste ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`taste ${noun}`)).toContain(`gate`);
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`chew ${noun}`)).toContain(`gate`);
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('sleep');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('run');
     });
     it(`responds to push / open`, () => {
-      expect(engine.getResponse(`push ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`push ${noun}`)).toContain(`gate`);
     });
   });
 
