@@ -1,8 +1,8 @@
 import {CommandContext} from '../../CommandContext';
-import {CrateObject} from './CrateObject';
 import {GameObject} from '../GameObject';
 import {Room} from '../Room';
 import {RoomBase} from '../RoomBase';
+import {CrateObject} from './CrateObject';
 
 export class Crate extends RoomBase {
   objects: GameObject[];
@@ -21,7 +21,7 @@ export class Crate extends RoomBase {
   constructor() {
     super('In Crate', Room.InCrate);
     this.objects = [
-      new CrateObject(true)
+      new CrateObject(this.id)
     ];
   }
 
