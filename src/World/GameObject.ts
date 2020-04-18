@@ -8,6 +8,8 @@ export interface GameObject {
   smell: objectResponse;
   lick: objectResponse;
   push: objectResponse;
+  pull: objectResponse;
+  open: objectResponse;
   eat: objectResponse;
   take: objectResponse;
   think: objectResponse;

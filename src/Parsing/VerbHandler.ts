@@ -132,6 +132,7 @@ export class VerbHandler {
   public getHandler(verb: string): (context: CommandContext) => boolean | undefined {
     switch (verb) {
       case 'eat':
+      case 'chew':
         return this.handleEat.bind(this);
       case 'push':
       case 'open':

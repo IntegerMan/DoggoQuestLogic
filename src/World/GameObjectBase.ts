@@ -9,6 +9,8 @@ export abstract class GameObjectBase implements GameObject {
     name: objectResponse;
     look!: objectResponse;
     push!: objectResponse;
+    pull!: objectResponse;
+    open!: objectResponse;
     smell!: objectResponse;
     take!: objectResponse;
     eat!: objectResponse;

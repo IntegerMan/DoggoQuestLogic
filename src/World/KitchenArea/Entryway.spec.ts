@@ -41,19 +41,19 @@ describe('Entryway', () => {
     const noun = 'door';
 
     it(`responds to look`, () => {
-      expect(engine.getResponse(`look at ${noun}`)).toContain('opens inward');
+      expect(engine.getResponse(`look at ${noun}`)).toContain('heavy');
     });
     it(`responds to smell`, () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('outside');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('not really that tasty');
+      expect(engine.getResponse(`taste ${noun}`)).toContain('isn\'t really that tasty');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('doesn\'t taste good');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('take me on walks');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('walk');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain('opens inward');
@@ -70,7 +70,7 @@ describe('Entryway', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('scary');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('I don\'t want to get close enough');
+      expect(engine.getResponse(`taste ${noun}`)).toContain('I don\'t want to get close enough');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('I don\'t want to get close enough');
@@ -93,7 +93,7 @@ describe('Entryway', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`taste ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
@@ -116,7 +116,7 @@ describe('Entryway', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`taste ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
@@ -139,7 +139,7 @@ describe('Entryway', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`taste ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
