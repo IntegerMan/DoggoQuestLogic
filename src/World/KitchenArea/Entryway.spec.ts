@@ -64,10 +64,10 @@ describe('Entryway', () => {
     const noun = 'gate';
 
     it(`responds to look`, () => {
-      expect(engine.getResponse(`look at ${noun}`)).toContain('scary gate');
+      expect(engine.getResponse(`look at ${noun}`)).toContain('scary');
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('scary');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('terror');
     });
     it(`responds to taste`, () => {
       expect(engine.getResponse(`taste ${noun}`)).toContain('I don\'t want to get close enough');
@@ -79,7 +79,7 @@ describe('Entryway', () => {
       expect(engine.getResponse(`think about ${noun}`)).toContain('scary');
     });
     it(`responds to push / open`, () => {
-      expect(engine.getResponse(`push ${noun}`)).toContain('I don\'t want to get close enough');
+      expect(engine.getResponse(`push ${noun}`)).toContain('near');
     });
   });
 
