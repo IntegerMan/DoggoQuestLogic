@@ -78,16 +78,16 @@ describe('Dining', () => {
       expect(engine.getResponse(`look at ${noun}`)).toContain('water');
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('normal');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('water');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`lick ${noun}`)).toContain('cold and wet');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('wet');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('drink');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('hockey');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('run');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain('paw');

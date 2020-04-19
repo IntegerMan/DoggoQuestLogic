@@ -1,4 +1,5 @@
 import {GameObject, objectResponse} from './GameObject';
+import {Room} from './Room';
 
 export abstract class GameObjectBase implements GameObject {
 
@@ -21,7 +22,7 @@ export abstract class GameObjectBase implements GameObject {
     think!: objectResponse;
     children: GameObject[] = [];
 
-  matches(reduced: string): boolean {
+  matches(reduced: string, room: Room): boolean {
     return reduced === this.name; // TODO: Check aliases as well
   }
 }
