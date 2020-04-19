@@ -1,4 +1,5 @@
 import {CommandContext} from '../CommandContext';
+import {Room} from './Room';
 
 export type objectResponse = ((context: CommandContext) => void) | string;
 
@@ -15,5 +16,5 @@ export interface GameObject {
   think: objectResponse;
   children: GameObject[];
 
-  matches(reduced: string): boolean;
+  matches(reduced: string, room: Room): boolean;
 }

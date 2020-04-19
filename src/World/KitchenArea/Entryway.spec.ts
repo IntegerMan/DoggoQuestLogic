@@ -129,11 +129,11 @@ describe('Entryway', () => {
     });
   });
 
-  describe ('kitchen', () => {
-    const noun = 'kitchen';
+  describe ('dining', () => {
+    const noun = 'dining room';
 
     it(`responds to look`, () => {
-      expect(engine.getResponse(`look at ${noun}`)).toContain('kitchen');
+      expect(engine.getResponse(`look at ${noun}`)).toContain('dining');
     });
     it(`responds to smell`, () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');

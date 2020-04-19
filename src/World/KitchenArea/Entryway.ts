@@ -2,13 +2,15 @@ import {CommandContext} from '../../CommandContext';
 import {GameObject} from '../GameObject';
 import {Room} from '../Room';
 import {RoomBase} from '../RoomBase';
+import {DiningObject} from './DiningObject';
 import {HallwayObject} from './HallwayObject';
 import {OfficeObject} from './OfficeObject';
 
 export class Entryway extends RoomBase {
   objects: GameObject[] = [
-    new HallwayObject(Room.Dining),
-    new OfficeObject(),
+    new HallwayObject(Room.Entryway),
+    new OfficeObject(Room.Entryway),
+    new DiningObject(Room.Entryway)
   ];
 
   south = Room.Dining;

@@ -2,7 +2,10 @@ import {GameObject, objectResponse} from './GameObject';
 
 export abstract class GameObjectBase implements GameObject {
 
-    protected constructor(name: string) {
+  protected TooFarMessage: string = `You can't do that from here!`;
+  protected CantBeSeriousMessage: string = `You can't be serious!`;
+
+  protected constructor(name: string) {
         this.name = name;
     }
 

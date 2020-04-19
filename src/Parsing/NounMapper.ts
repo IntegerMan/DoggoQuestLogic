@@ -13,7 +13,7 @@ export class NounMapper {
     }
 
     for (const noun of context.sentence.rootWords.filter(w => w.isNoun)) {
-      noun.gameObject = this.findMatchForNoun(currentRoom.objects, noun.reduced);
+      noun.gameObject = this.findMatchForNoun(currentRoom, currentRoom.objects, noun.reduced);
       noun.addTag('Mapped');
     }
 
@@ -50,18 +50,18 @@ export class NounMapper {
     }
   }
 
-  private findMatchForNoun(objects: GameObject[], reduced: string | undefined): GameObject | null {
+  private findMatchForNoun(room: GameRoom, objects: GameObject[], reduced: string | undefined): GameObject | null {
     if (!reduced) return null;
 
     for (const obj of objects) {
       // If this object is a direct match, use it
-      if (obj.matches(reduced)) {
+      if (obj.matches(reduced, room.id)) {
         return obj;
       }
 
       // If it has children, we'll need to recursively check them
       if (obj.children) {
-        const childResult = this.findMatchForNoun(obj.children, reduced);
+        const childResult = this.findMatchForNoun(room, obj.children, reduced);
         if (childResult) {
           return childResult;
         }

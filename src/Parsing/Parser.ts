@@ -20,7 +20,12 @@ export class Parser {
       }
 
       if (word.isVerb) {
-        continue;
+        // Some words, like 'dining' in 'dining room' get reduced down to forms that are verbs when they are really adjectives
+        if (word !== sentence.verbWord && word.hasTag('Adjectives')) {
+          word.removeTag('Verb');
+        } else {
+          continue;
+        }
       }
 
       if (word.isAdverb) {
@@ -50,13 +55,14 @@ export class Parser {
       text = ' ';
     }
 
-    // Do smart replacement. Split / join is the equivalent of "replaceAll"
+    // Do smart replacement of common input shortcuts in adventure games
     text = Parser.replaceAll(text, ' n ', ' north ');
     text = Parser.replaceAll(text, ' e ', ' east ');
     text = Parser.replaceAll(text, ' s ', ' south ');
     text = Parser.replaceAll(text, ' w ', ' west ');
     text = Parser.replaceAll(text, ' l ', ' look ');
     text = Parser.replaceAll(text, ' x ', ' examine ');
+    text = Parser.replaceAll(text, ' i ', ' inventory ');
 
     return text;
   }
@@ -110,6 +116,7 @@ export class Parser {
   private adjustTags(word: Word): void {
 
     const verbs = ['bark', 'roo', 'arf', 'yip', 'open', 'growl', 'howl', 'sniff', 'debug'];
+    const adjectives = ['dining'];
     const nouns = ['crate', 'objects', 'object', 'gate'];
     const preps = ['on', 'under', 'below', 'behind', 'above'];
     const directions = ['north', 'south', 'east', 'west', 'up', 'down', 'in', 'out'];
@@ -118,6 +125,8 @@ export class Parser {
       word.removeTag('Noun').addTag('Verb');
     } else if (nouns.find(v => v === word.reduced)) {
       word.removeTag('Verb').addTag('Noun');
+    } else if (adjectives.find(a => a === word.reduced)) {
+      word.addTag('Adjectives');
     } else if (preps.find(p => p === word.reduced)) {
       word.addTag('Preposition');
     } else if (directions.find(d => d === word.reduced)) {
