@@ -58,16 +58,16 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('outside');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('not really that tasty');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('tasty');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('doesn\'t taste good');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('tasty');
     });
     it(`responds to think about`, () => {
       expect(engine.getResponse(`think about ${noun}`)).toContain('go potty');
     });
     it(`responds to push / open`, () => {
-      expect(engine.getResponse(`push ${noun}`)).toContain('locked');
+      expect(engine.getResponse(`push ${noun}`)).toContain('daddy');
     });
   });
 
@@ -81,7 +81,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('normal');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('cold and wet');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('cold and wet');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('drink');
@@ -104,7 +104,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('kibble');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('ordinary');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('ordinary');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('crunch');
@@ -127,7 +127,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('wood');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('yucky');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('yucky');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('coated');
@@ -150,7 +150,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('wood');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('yucky');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('yucky');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('coated');
@@ -173,7 +173,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
@@ -196,7 +196,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
@@ -219,7 +219,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
