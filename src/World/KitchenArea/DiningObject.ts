@@ -33,7 +33,7 @@ export class DiningObject extends GameObjectBase {
         this.think = 'The dining room is where I beg daddy for food while mommy and daddy are eating at the table.';
     }
 
-  matches(reduced: string): boolean {
-    return super.matches(reduced) || (this.room === Room.Entryway && reduced === 'room');
+  matches(reduced: string, room: Room): boolean {
+    return super.matches(reduced, room) || (room === Room.Entryway && reduced === 'room');
   }
 }
