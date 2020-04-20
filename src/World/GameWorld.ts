@@ -13,6 +13,8 @@ export class GameWorld {
   public score = 0;
   public currentRoom: Room = Room.InCrate;
   public isChairChewed: boolean = false;
+  public foundCrumb: boolean = false;
+  public ateCrumb: boolean = false;
 
   constructor() {
   }

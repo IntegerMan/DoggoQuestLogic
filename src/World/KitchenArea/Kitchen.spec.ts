@@ -27,6 +27,30 @@ describe('Kitchen', () => {
     });
   });
 
+
+  describe ('food', () => {
+    const noun = 'food';
+
+    it(`responds to look`, () => {
+      expect(engine.getResponse(`look at ${noun}`)).toContain('kibble');
+    });
+    it(`responds to smell`, () => {
+      expect(engine.getResponse(`smell ${noun}`)).toContain('kibble');
+    });
+    it(`responds to taste`, () => {
+      expect(engine.getResponse(`lick ${noun}`)).toContain('ordinary');
+    });
+    it(`responds to chew`, () => {
+      expect(engine.getResponse(`chew ${noun}`)).toContain('crunch');
+    });
+    it(`responds to think about`, () => {
+      expect(engine.getResponse(`think about ${noun}`)).toContain('boring');
+    });
+    it(`responds to push / open`, () => {
+      expect(engine.getResponse(`push ${noun}`)).toContain('paw');
+    });
+  });
+
   describe ('crumb', () => {
     const noun = 'crumb';
 
@@ -34,16 +58,16 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`look at ${noun}`)).toContain('find');
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('track');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('find');
     });
     it(`responds to taste`, () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('find');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('yummy');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('find');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('food');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('best');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain('find');
