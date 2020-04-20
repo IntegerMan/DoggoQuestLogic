@@ -32,19 +32,19 @@ describe('Kitchen', () => {
     const noun = 'food';
 
     it(`responds to look`, () => {
-      expect(engine.getResponse(`look at ${noun}`)).toContain('kibble');
+      expect(engine.getResponse(`look at ${noun}`)).toContain('daddy');
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('kibble');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('appetizing');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`lick ${noun}`)).toContain('ordinary');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('tastes like');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('crunch');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('could be better');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('boring');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('wish');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain('paw');
