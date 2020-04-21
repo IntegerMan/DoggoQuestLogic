@@ -107,10 +107,10 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('crumb');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('yucky');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('crumb');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('hard');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('can\'t');
     });
     it(`responds to think about`, () => {
       expect(engine.getResponse(`think about ${noun}`)).toContain('food');
