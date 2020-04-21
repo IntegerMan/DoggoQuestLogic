@@ -136,7 +136,7 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('bowl');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('beg');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain(`can't`);

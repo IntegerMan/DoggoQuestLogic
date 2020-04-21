@@ -34,6 +34,8 @@ export class DiningObject extends GameObjectBase {
     }
 
   matches(reduced: string, room: Room): boolean {
-    return super.matches(reduced, room) || (room === Room.Entryway && reduced === 'room');
+    return super.matches(reduced, room)
+      || (room === Room.Entryway && reduced === 'room')
+      || (room === Room.Kitchen && reduced === 'room');
   }
 }
