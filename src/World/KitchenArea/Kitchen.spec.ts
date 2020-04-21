@@ -61,7 +61,7 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('find');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('find');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('find');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('find');
@@ -84,16 +84,16 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('food');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('boring');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('boring');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('not the way');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('better way');
     });
     it(`responds to think about`, () => {
       expect(engine.getResponse(`think about ${noun}`)).toContain('food');
     });
     it(`responds to push / open`, () => {
-      expect(engine.getResponse(`push ${noun}`)).toContain('knocked over');
+      expect(engine.getResponse(`push ${noun}`)).toContain('spill');
     });
   });
 
@@ -107,7 +107,7 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('crumb');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('crumb');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('can\'t');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('can\'t');
@@ -130,7 +130,7 @@ describe('Kitchen', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
