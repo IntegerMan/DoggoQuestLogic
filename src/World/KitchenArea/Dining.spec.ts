@@ -193,7 +193,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`look at ${noun}`)).toContain(noun);
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('can\'t');
     });
     it(`responds to taste`, () => {
       expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);

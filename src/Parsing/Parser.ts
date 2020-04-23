@@ -116,7 +116,7 @@ export class Parser {
   private adjustTags(word: Word): void {
 
     const verbs = ['bark', 'roo', 'arf', 'yip', 'open', 'growl', 'howl', 'sniff', 'debug', 'lick'];
-    const adjectives = ['dining'];
+    const adjectives = ['dining', 'living'];
     const nouns = ['crate', 'objects', 'object', 'gate', 'can'];
     const preps = ['on', 'under', 'below', 'behind', 'above'];
     const directions = ['north', 'south', 'east', 'west', 'up', 'down', 'in', 'out'];
