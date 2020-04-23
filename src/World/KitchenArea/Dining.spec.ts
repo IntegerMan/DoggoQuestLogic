@@ -170,7 +170,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`look at ${noun}`)).toContain(noun);
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('can\'t');
     });
     it(`responds to taste`, () => {
       expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);
@@ -179,7 +179,7 @@ describe('Dining', () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('crate');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('place to be');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain(`can't`);
