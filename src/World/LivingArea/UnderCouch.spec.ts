@@ -1,7 +1,7 @@
 import {StoryEngine} from '../../StoryEngine';
 import {Room} from '../Room';
 
-describe('On Chair', () => {
+describe('Under Couch', () => {
 
   let engine;
   beforeEach(() => {

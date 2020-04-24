@@ -30,6 +30,8 @@ export class UnderCouch extends RoomBase {
       new LivingRoomObject(Room.UnderCouch),
       new UnderCouchObject(Room.UnderCouch)
     ];
+
+    this.out = Room.Living;
   }
 
   describe(context: CommandContext): void {
