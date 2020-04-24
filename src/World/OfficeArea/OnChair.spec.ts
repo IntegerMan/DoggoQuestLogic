@@ -21,11 +21,8 @@ describe('On Chair', () => {
     it('Lists objects', () => {
       const response = engine.getResponse('look');
       expect(response).toContain('outside');
-      expect(response).toContain('grass');
-      expect(response).toContain('street');
-      expect(response).toContain('tree');
+      expect(response).toContain('yard');
       expect(response).toContain('office');
-      expect(response).toContain('crate');
       expect(response).toContain('window');
       expect(response).toContain('chair');
     });
@@ -62,11 +59,11 @@ describe('On Chair', () => {
     it('Looks should be descriptive', () => {
       expect(engine.getResponse('look at chair')).toContain('rocking chair');
     });
-    it('Eat should suggest doing that from the office', () => {
-      expect(engine.getResponse('eat chair')).toContain('while you\'re in the chair');
+    it('Eat should work', () => {
+      expect(engine.getResponse('eat chair')).toContain('rip');
     });
-    it('Take should suggest doing that from the office', () => {
-      expect(engine.getResponse('get chair')).toContain('while you\'re in the chair');
+    it('Take should complain about weight', () => {
+      expect(engine.getResponse('get chair')).toContain('heavy');
     });
   });
 });
