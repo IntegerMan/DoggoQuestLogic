@@ -54,26 +54,49 @@ describe('Living Room', () => {
     });
   });
 
-  describe ('ball', () => {
-    const noun = 'ball';
+  describe ('toy box', () => {
+    const noun = 'toy box';
 
     it(`responds to look`, () => {
-      expect(engine.getResponse(`look at ${noun}`)).toContain('hockey');
+      expect(engine.getResponse(`look at ${noun}`)).toContain('toys');
     });
     it(`responds to smell`, () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('plastic');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`lick ${noun}`)).toContain('plastic');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('canvas');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('touh');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('tough');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('hockey');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('squeaker');
     });
     it(`responds to push / open`, () => {
-      expect(engine.getResponse(`push ${noun}`)).toContain('roll');
+      expect(engine.getResponse(`push ${noun}`)).toContain('old box');
+    });
+  });
+
+  describe ('TV', () => {
+    const noun = 'TV';
+
+    it(`responds to look`, () => {
+      expect(engine.getResponse(`look at ${noun}`)).toContain('off');
+    });
+    it(`responds to smell`, () => {
+      expect(engine.getResponse(`smell ${noun}`)).toContain('plastic');
+    });
+    it(`responds to taste`, () => {
+      expect(engine.getResponse(`lick ${noun}`)).toContain('can\'t');
+    });
+    it(`responds to chew`, () => {
+      expect(engine.getResponse(`chew ${noun}`)).toContain('can\'t');
+    });
+    it(`responds to think about`, () => {
+      expect(engine.getResponse(`think about ${noun}`)).toContain('dogs');
+    });
+    it(`responds to push / open`, () => {
+      expect(engine.getResponse(`push ${noun}`)).toContain('can\'t');
     });
   });
 
