@@ -1,5 +1,6 @@
 import {CommandContext} from '../../CommandContext';
 import {GameObject} from '../GameObject';
+import {DiningObject} from '../KitchenArea/DiningObject';
 import {LivingRoomObject} from '../KitchenArea/LivingRoomObject';
 import {Room} from '../Room';
 import {RoomBase} from '../RoomBase';
@@ -14,7 +15,8 @@ export class LivingRoom extends RoomBase {
   constructor() {
     super('Living Room', Room.Living);
     this.objects = [
-      new LivingRoomObject(Room.Living)
+      new LivingRoomObject(Room.Living),
+      new DiningObject(Room.Living)
     ];
   }
 

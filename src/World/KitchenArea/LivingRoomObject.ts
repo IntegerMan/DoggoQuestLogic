@@ -33,6 +33,6 @@ export class LivingRoomObject extends GameObjectBase {
     }
 
   matches(reduced: string, room: Room): boolean {
-    return super.matches(reduced, room) || reduced === 'room' || reduced === 'living';
+    return super.matches(reduced, room) || (reduced === 'room' && room !== Room.Living) || reduced === 'living';
   }
 }

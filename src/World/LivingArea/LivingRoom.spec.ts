@@ -38,16 +38,16 @@ describe('Living Room', () => {
       expect(engine.getResponse(`look at ${noun}`)).toContain('soft');
     });
     it(`responds to smell`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('Mommy and Daddy');
+      expect(engine.getResponse(`smell ${noun}`)).toContain('mommy');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('yucky');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('regret');
     });
     it(`responds to chew`, () => {
-      expect(engine.getResponse(`chew ${noun}`)).toContain('taste');
+      expect(engine.getResponse(`chew ${noun}`)).toContain('soft');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('Daddy');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('daddy');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain('under');
@@ -64,7 +64,7 @@ describe('Living Room', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('plastic');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain('plastic');
+      expect(engine.getResponse(`lick ${noun}`)).toContain('plastic');
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('touh');
@@ -87,13 +87,13 @@ describe('Living Room', () => {
       expect(engine.getResponse(`smell ${noun}`)).toContain('closer');
     });
     it(`responds to taste`, () => {
-      expect(engine.getResponse(`smell ${noun}`)).toContain(`can't`);
+      expect(engine.getResponse(`lick ${noun}`)).toContain(`can't`);
     });
     it(`responds to chew`, () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain(`can't`);
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('bowl');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('beg');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain(`can't`);

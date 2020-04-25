@@ -43,4 +43,6 @@ export class Dining extends RoomBase {
     context.addText(`The large glass door lets me see outside. I like that door.`);
     context.addText(`The kitchen is to the west and the living room is to the west. The hall goes north to the entryway.`);
   }
+
+
 }
