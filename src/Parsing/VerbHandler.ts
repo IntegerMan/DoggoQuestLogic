@@ -166,6 +166,7 @@ export class VerbHandler {
       case 'go':
       case 'walk':
       case 'run':
+      case 'jump':
         return this.handleGo.bind(this);
       case 'get':
       case 'take':

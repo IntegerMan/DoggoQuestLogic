@@ -32,6 +32,7 @@ export class Dining extends RoomBase {
       return true;
     } else if (direction === 'up') {
       context.addText('The table and chairs are too tall to jump up onto.');
+      return true;
     }
     return false;
   }

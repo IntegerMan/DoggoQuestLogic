@@ -31,7 +31,7 @@ describe('Dining', () => {
     it('Should not allow navigation onto the table', () => {
       const response = engine.getResponseState('jump up');
       expect(response.state.currentRoom).toBe(Room.Dining);
-      expect(response.responseText).toContain('high');
+      expect(response.responseText).toContain('too tall');
     });
   });
 
