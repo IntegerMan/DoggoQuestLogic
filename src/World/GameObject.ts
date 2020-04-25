@@ -17,4 +17,6 @@ export interface GameObject {
   children: GameObject[];
 
   matches(reduced: string, room: Room): boolean;
+
+  getRoomMapping(): Room | undefined;
 }

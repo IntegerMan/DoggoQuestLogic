@@ -128,7 +128,7 @@ export class Parser {
     } else if (adjectives.find(a => a === word.reduced)) {
       word.addTag('Adjectives');
     } else if (preps.find(p => p === word.reduced)) {
-      word.addTag('Preposition');
+      word.removeTag('Verb').addTag('Preposition');
     } else if (directions.find(d => d === word.reduced)) {
       word.addTag('Noun').addTag('Direction');
     }

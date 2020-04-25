@@ -65,5 +65,4 @@ export class Word {
     this.children.push(word);
     return this;
   }
-
 }

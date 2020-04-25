@@ -2,7 +2,7 @@ import {GameObjectBase} from '../GameObjectBase';
 import {Room} from '../Room';
 
 export class CouchObject extends GameObjectBase {
-    constructor(room: Room) {
+    constructor(private room: Room) {
       super('couch');
 
       this.smell = `The couch smells like mommy, daddy, and fabric.`;
@@ -22,4 +22,10 @@ export class CouchObject extends GameObjectBase {
       }
     }
 
+  getRoomMapping(): Room | undefined {
+    if (this.room === Room.Living) {
+      return Room.UnderCouch;
+    }
+    return Room.Living;
+  }
 }

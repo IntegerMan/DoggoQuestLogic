@@ -25,4 +25,8 @@ export abstract class GameObjectBase implements GameObject {
   matches(reduced: string, room: Room): boolean {
     return reduced === this.name; // TODO: Check aliases as well
   }
+
+  getRoomMapping(): Room | undefined {
+    return undefined;
+  }
 }

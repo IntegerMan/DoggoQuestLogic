@@ -94,8 +94,17 @@ export class VerbHandler {
     if (!target) {
       context.addError(`You need to say which way you want to go. For example, try 'go to the north' or 'go west'`);
       return false;
-    } else if (target.room !== undefined && target.room !== context.currentRoom) {
-      context.changeRoom(target.room, target.text);
+    }
+
+    let roomTarget = target.room;
+
+    // Some objects equate to directions in rare cases. Allow these cases. This supports sentences like 'Go behind couch'
+    if (roomTarget === undefined && target && target.gameObject) {
+      roomTarget = target.gameObject.getRoomMapping();
+    }
+
+    if (roomTarget !== undefined && roomTarget !== context.currentRoom) {
+      context.changeRoom(roomTarget, target.text);
       return true;
     } else {
       context.addError(`You can't go that way`);
