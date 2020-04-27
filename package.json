@@ -7,7 +7,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test": "npx jest",
-    "ci": "npm run build",
+    "ci": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
     "preversion": "npm run ci",
     "patch": "npm version patch && npm publish",
