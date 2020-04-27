@@ -93,7 +93,7 @@ describe('Living Room', () => {
       expect(engine.getResponse(`chew ${noun}`)).toContain('can\'t');
     });
     it(`responds to think about`, () => {
-      expect(engine.getResponse(`think about ${noun}`)).toContain('dogs');
+      expect(engine.getResponse(`think about ${noun}`)).toContain('dog');
     });
     it(`responds to push / open`, () => {
       expect(engine.getResponse(`push ${noun}`)).toContain('can\'t');
