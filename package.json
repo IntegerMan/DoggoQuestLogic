@@ -1,6 +1,6 @@
 {
   "name": "doggo-quest-logic",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The game logic for the Doggo Quest text-based game sample project",
   "main": "index.js",
   "scripts": {
