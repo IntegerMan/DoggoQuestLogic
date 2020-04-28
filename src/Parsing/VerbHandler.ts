@@ -196,11 +196,14 @@ export class VerbHandler {
       case 'potty':
         return this.handlePotty.bind(this);
       case 'save':
+        // @ts-ignore
         return undefined; // TODO: Support this
       case 'load':
       case 'restore':
+        // @ts-ignore
         return undefined; // TODO: Support this
       case 'restart':
+        // @ts-ignore
         return undefined; // TODO: Support this
       case 'debug':
         return this.handleDebug.bind(this);
