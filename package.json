@@ -9,7 +9,7 @@
     "test": "npx jest",
     "ci": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
-    "preversion": "npm run ci",
+    "preversion": "npm run build",
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
     "major": "npm version major && npm publish"
