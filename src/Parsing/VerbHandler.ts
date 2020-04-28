@@ -138,7 +138,12 @@ export class VerbHandler {
       `You\'ve licked that before when you were puppy and don\'t want to repeat the experience.`);
   }
 
-  public getHandler(verb: string): (context: CommandContext) => boolean | undefined {
+  public handlePotty(context: CommandContext): boolean {
+    context.addText('You don\'t need to go potty right now');
+    return false;
+  }
+
+  public getHandler(verb: string): (context: CommandContext) => (boolean | undefined) {
     switch (verb) {
       case 'eat':
       case 'chew':
@@ -176,10 +181,27 @@ export class VerbHandler {
       case 'walk':
       case 'run':
       case 'jump':
+      case 'climb':
         return this.handleGo.bind(this);
       case 'get':
       case 'take':
         return this.handleGet.bind(this);
+      case 'pee':
+      case 'poop':
+      case 'poo':
+      case 'shit':
+      case 'piss':
+      case 'urinate':
+      case 'crap':
+      case 'potty':
+        return this.handlePotty.bind(this);
+      case 'save':
+        return undefined; // TODO: Support this
+      case 'load':
+      case 'restore':
+        return undefined; // TODO: Support this
+      case 'restart':
+        return undefined; // TODO: Support this
       case 'debug':
         return this.handleDebug.bind(this);
       default:
