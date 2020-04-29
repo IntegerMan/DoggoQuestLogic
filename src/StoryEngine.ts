@@ -26,16 +26,11 @@ export class StoryEngine {
 
   // noinspection JSUnusedGlobalSymbols
   public getInitialEntries(): StoryEntry[] {
-    const entries = [
-      new StoryEntry(StoryEntryType.SystemText, 'Welcome to Doggo Quest!'),
-      new StoryEntry(StoryEntryType.SystemText,
-        'Doggo Quest is an Interactive Fiction game created by Matt Eland (@IntegerMan)'),
-      new StoryEntry(StoryEntryType.SystemText,
-        'This game is implemented in Angular / TypeScript using Angular Material for styling with Compromise-NLP for text parsing.'),
-      new StoryEntry(StoryEntryType.Divider, '')
-    ];
-
+    const entries = [];
     const context = new CommandContext(entries, new Sentence(), this.state);
+
+    context.addInitialEntries();
+
     context.describeCurrentRoom(true);
 
     this.score = context.world.score;

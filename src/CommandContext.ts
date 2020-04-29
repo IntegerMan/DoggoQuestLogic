@@ -115,4 +115,21 @@ export class CommandContext {
       this.world.timeAdvanced++;
     }
   }
+
+  public restart(): void {
+    this.world.reset();
+
+    while (this.entries.length > 0) {
+      this.entries.pop();
+    }
+
+    this.addInitialEntries();
+  }
+
+  public addInitialEntries(): void {
+    this.addSystem('Welcome to Doggo Quest!');
+    this.addSystem('Doggo Quest is an Interactive Fiction game created by Matt Eland (@IntegerMan)');
+    this.addSystem('This game is implemented in Angular / TypeScript using Angular Material for styling with Compromise-NLP for text parsing.');
+    this.entries.push(new StoryEntry(StoryEntryType.Divider, ''));
+  }
 }

@@ -16,6 +16,7 @@ export class GameWorld {
   public foundCrumb: boolean = false;
   public ateCrumb: boolean = false;
   public timeAdvanced: number = 0;
+  public isGameOver: boolean = false;
 
   constructor() {
   }
@@ -35,5 +36,15 @@ export class GameWorld {
 
   public getRoom(room: Room): GameRoom | undefined {
     return this.rooms.find(r => r.id === room);
+  }
+
+  reset() {
+    this.isCrateOpen = false;
+    this.currentRoom = Room.InCrate;
+    this.timeAdvanced = 0;
+    this.isChairChewed = false;
+    this.ateCrumb = false;
+    this.score = 0;
+    this.isGameOver = false;
   }
 }

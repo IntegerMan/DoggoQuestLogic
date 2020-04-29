@@ -144,6 +144,11 @@ export class VerbHandler {
     return false;
   }
 
+  public handleRestart(context: CommandContext): boolean {
+    context.restart();
+    return true;
+  }
+
   public getHandler(verb: string): (context: CommandContext) => (boolean | undefined) {
     switch (verb) {
       case 'eat':
@@ -204,8 +209,7 @@ export class VerbHandler {
         // @ts-ignore
         return undefined; // TODO: Support this
       case 'restart':
-        // @ts-ignore
-        return undefined; // TODO: Support this
+        return this.handleRestart.bind(this);
       case 'debug':
         return this.handleDebug.bind(this);
       default:
