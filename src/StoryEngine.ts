@@ -56,6 +56,10 @@ export class StoryEngine {
       this.handleCommand(context);
     }
 
+    if (console && console.debug) {
+      console.debug(`Time Elapsed ${context.world.timeAdvanced}`);
+    }
+
     // Tell the user interface that we're done adding in commands
     this.score = context.world.score;
 
