@@ -15,6 +15,7 @@ export class GameWorld {
   public isChairChewed: boolean = false;
   public foundCrumb: boolean = false;
   public ateCrumb: boolean = false;
+  public timeAdvanced: number = 0;
 
   constructor() {
   }

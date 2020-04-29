@@ -30,6 +30,7 @@ export class VerbHandler {
             action(context);
             break;
         }
+        context.advanceTime();
       } else {
         context.addText(genericResponse);
       }

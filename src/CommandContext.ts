@@ -109,4 +109,10 @@ export class CommandContext {
   public addLocalObjects(): void {
     this.entries.push(new StoryEntry(StoryEntryType.ObjectList, 'Objects in this room', this.sentence, this.currentRoomObject));
   }
+
+  public advanceTime(): void {
+    if (this.world.isCrateOpen) {
+      this.world.timeAdvanced++;
+    }
+  }
 }

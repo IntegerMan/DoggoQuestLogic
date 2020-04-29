@@ -81,6 +81,12 @@ export class StoryEngine {
     return this.getResponseState(command).responseText;
   }
 
+  public handleCommands(commands: string[]): GameWorld {
+    commands.forEach(c => this.handlePlayerInput(c));
+
+    return this.state;
+  }
+
   private handleCommand(context: CommandContext): void {
     if (!context.sentence.verb) return;
 
